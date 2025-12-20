@@ -177,6 +177,18 @@ const SchoolPage = () => {
     }],
   };
 
+  // Would Choose Different Program
+  const wouldChooseDifferentData = {
+    labels: ['No, Same Program', 'Yes, Different Program', 'Not Sure'],
+    datasets: [{
+      data: [
+        universityData.programValueAssessment.wouldChooseDifferent.responses.no,
+        universityData.programValueAssessment.wouldChooseDifferent.responses.yes,
+        universityData.programValueAssessment.wouldChooseDifferent.responses.not_sure,
+      ],
+    }],
+  };
+
   return (
     <PageContainer>
       <div className="max-w-7xl mx-auto">
@@ -380,6 +392,28 @@ const SchoolPage = () => {
                 </p>
               </div>
             </div>
+
+            {/* Would Choose Different Program */}
+            <div>
+              <ChartContainer 
+                title="Would Choose Same Program Again"
+                subtitle={universityData.programValueAssessment.wouldChooseDifferent.question}
+              >
+                <EnhancedPieChart 
+                  data={wouldChooseDifferentData} 
+                  colorTheme="gold"
+                  showTitle={false}
+                />
+              </ChartContainer>
+              <div className="mt-4 bg-yellow-50 p-4 rounded-lg border-yellow-400">
+                <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
+                <p className="text-sm text-gray-700">
+                  <strong>{Math.round((universityData.programValueAssessment.wouldChooseDifferent.responses.no / 
+                    (universityData.programValueAssessment.wouldChooseDifferent.responses.yes + universityData.programValueAssessment.wouldChooseDifferent.responses.no + universityData.programValueAssessment.wouldChooseDifferent.responses.not_sure)) * 100)}%</strong> would 
+                  choose the same program again, indicating strong program satisfaction and fit.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -408,8 +442,8 @@ const SchoolPage = () => {
           </div>
           <div className="bg-gradient-to-r from-purple-400 to-pink-500 p-6 rounded-lg text-center text-white">
             <div className="text-3xl font-bold">
-              {Math.round(((universityData.programValueAssessment.wouldChooseDifferent as any).no / 
-                ((universityData.programValueAssessment.wouldChooseDifferent as any).yes + (universityData.programValueAssessment.wouldChooseDifferent as any).no + (universityData.programValueAssessment.wouldChooseDifferent as any).not_sure)) * 100)}%
+              {Math.round((universityData.programValueAssessment.wouldChooseDifferent.responses.no / 
+                (universityData.programValueAssessment.wouldChooseDifferent.responses.yes + universityData.programValueAssessment.wouldChooseDifferent.responses.no + universityData.programValueAssessment.wouldChooseDifferent.responses.not_sure)) * 100)}%
             </div>
             <div className="text-sm opacity-90">Would Choose Again</div>
           </div>

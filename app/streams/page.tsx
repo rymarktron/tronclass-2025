@@ -93,52 +93,93 @@ const StreamsPage = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Transfer Status */}
-          <ChartContainer 
-            title="Transfer into Mechatronics"
-            subtitle={streamsData.transferData.question}
-          >
-            <EnhancedPieChart 
-              data={transferData} 
-              colorTheme="gold"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Transfer into Mechatronics"
+              subtitle={streamsData.transferData.question}
+            >
+              <EnhancedPieChart 
+                data={transferData} 
+                colorTheme="gold"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-yellow-50 p-4 rounded-lg border-yellow-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                <strong>Significant transfer activity</strong> shows that students actively explore different streams to find their best fit. 
+                This flexibility is valuable for discovering passion areas and optimizing career outcomes.
+              </p>
+            </div>
+          </div>
 
           {/* Current Stream Distribution */}
-          <ChartContainer 
-            title="Current Stream Distribution"
-            subtitle={streamsData.currentStream.question}
-          >
-            <EnhancedPieChart 
-              data={currentStreamData} 
-              colorTheme="bronze"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Current Stream Distribution"
+              subtitle={streamsData.currentStream.question}
+            >
+              <EnhancedPieChart 
+                data={currentStreamData} 
+                colorTheme="bronze"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-amber-50 p-4 rounded-lg border-amber-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                Stream 8's <strong>co-op-first structure appeals to many students</strong> seeking practical work experience early. 
+                The distribution reflects diverse preferences for balancing academics and industry exposure.
+              </p>
+            </div>
+          </div>
 
           {/* Stream Switch */}
-          <ChartContainer 
-            title="Stream Switching"
-            subtitle={streamsData.streamSwitch.question}
-          >
-            <EnhancedPieChart 
-              data={streamSwitchData} 
-              colorTheme="silver"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Stream Switching"
+              subtitle={streamsData.streamSwitch.question}
+            >
+              <EnhancedPieChart 
+                data={streamSwitchData} 
+                colorTheme="silver"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-gray-50 p-4 rounded-lg border-gray-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                <strong>{Math.round((streamsData.streamSwitch.responses.yes / 
+                  (streamsData.streamSwitch.responses.no + streamsData.streamSwitch.responses.yes)) * 100)}% of students switched streams</strong>, indicating 
+                the program's flexibility allows students to pivot when their needs or interests change.
+              </p>
+            </div>
+          </div>
 
           {/* Transfer Term */}
-          <ChartContainer 
-            title="Transfer Term"
-            subtitle={streamsData.transferTerm.question}
-          >
-            <EnhancedBarChart 
-              data={transferTermData} 
-              colorTheme="mixed"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Transfer Term"
+              subtitle={streamsData.transferTerm.question}
+            >
+              <EnhancedBarChart 
+                data={transferTermData} 
+                colorTheme="mixed"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-purple-50 p-4 rounded-lg border-purple-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                <strong>Transfer timing shows two peaks</strong>—early transfers after adjusting to university, and later transfers as students clarify career goals. 
+                Both patterns reflect healthy decision-making throughout the program.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Initial Stream Choice Reasons */}
@@ -153,6 +194,14 @@ const StreamsPage = () => {
               showTitle={false}
             />
           </ChartContainer>
+          {/* Analysis */}
+          <div className="mt-4 bg-yellow-50 p-4 rounded-lg border-yellow-400">
+            <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+            <p className="text-sm text-gray-700">
+              <strong>Job opportunities and program timeline</strong> drive initial stream selection. 
+              Students make strategic choices based on career prospects and how the co-op schedule aligns with their goals—demonstrating thoughtful planning.
+            </p>
+          </div>
         </div>
 
         {/* Stream Advice Section */}

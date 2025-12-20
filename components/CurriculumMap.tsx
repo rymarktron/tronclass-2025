@@ -153,9 +153,6 @@ const CurriculumMap: React.FC = () => {
                           <h4 className="text-lg font-bold text-gray-900">
                             {term === '1A' || term === '2A' || term === '3A' || term === '4A' ? 'Fall' : 'Winter'}
                           </h4>
-                          <span className="text-sm text-gray-600">
-                            ({termCourses.length} {termCourses.length === 1 ? 'course' : 'courses'}, {totalCredits.toFixed(2)} credits)
-                          </span>
                         </div>
 
                         {/* Courses */}
@@ -189,52 +186,6 @@ const CurriculumMap: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Integration Pathways */}
-        <div className="mt-16 pt-12 border-t-2 border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Integration Pathways</h2>
-          <p className="text-gray-600 mb-8">
-            What makes Mechatronics unique is how these disciplines converge in real-world applications:
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6  border-blue-500 bg-blue-50 rounded-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
-                <Bot className="w-6 h-6" /> Robotics
-              </h3>
-              <p className="text-gray-700 text-sm">
-                Mechanical design + Electrical control + Software logic = Intelligent robots
-              </p>
-            </div>
-
-            <div className="p-6  border-yellow-500 bg-yellow-50 rounded-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
-                <Lightbulb className="w-6 h-6" /> Machine Intelligence
-              </h3>
-              <p className="text-gray-700 text-sm">
-                Advanced math + Control systems + Algorithms = Intelligent automation
-              </p>
-            </div>
-
-            <div className="p-6  border-green-500 bg-green-50 rounded-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
-                <Cpu className="w-6 h-6" /> PCB & Electronics Design
-              </h3>
-              <p className="text-gray-700 text-sm">
-                Circuits + Digital logic + Sensors + Power electronics = Custom hardware
-              </p>
-            </div>
-
-            <div className="p-6  border-pink-500 bg-pink-50 rounded-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
-                <Heart className="w-6 h-6" /> Biomedical Design
-              </h3>
-              <p className="text-gray-700 text-sm">
-                Mechanical + Electronics + Software = Healthcare devices & solutions
-              </p>
-            </div>
           </div>
         </div>
       </div>

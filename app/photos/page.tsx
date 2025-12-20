@@ -193,7 +193,7 @@ const PhotosPage = () => {
                     const termPhotos = getPhotosForTerm(String(yearGroup.year), term);
 
                     return (
-                      <div key={term} className="border-l-4 border-gray-300 pl-6 pb-6">
+                      <div key={term} className=" border-gray-300 pl-6 pb-6">
                         <div className="flex items-center gap-3 mb-4">
                           <div className="w-4 h-4 rounded-full bg-gray-400 -ml-8"></div>
                           <h4 className="text-lg font-bold text-gray-900">

@@ -92,77 +92,137 @@ const FuturePlansPage = () => {
 
         {/* Top Row - Main Plans */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-          <ChartContainer 
-            title="Entering Workforce"
-            subtitle={PostTron.postGraduationPlans.workforcePlans.question}
-          >
-            <EnhancedPieChart 
-              data={workforceData} 
-              colorTheme="gold"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Entering Workforce"
+              subtitle={PostTron.postGraduationPlans.workforcePlans.question}
+            >
+              <EnhancedPieChart 
+                data={workforceData} 
+                colorTheme="gold"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-yellow-50 p-4 rounded-lg border-yellow-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                Most graduates are <strong>committing to the workforce immediately</strong>, with a significant portion considering further education or taking time. 
+                This reflects confidence in their engineering credentials and strong job market demand.
+              </p>
+            </div>
+          </div>
 
-          <ChartContainer 
-            title="Further Education Plans"
-            subtitle={PostTron.postGraduationPlans.furtherEducation.question}
-          >
-            <EnhancedPieChart 
-              data={educationData} 
-              colorTheme="bronze"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Further Education Plans"
+              subtitle={PostTron.postGraduationPlans.furtherEducation.question}
+            >
+              <EnhancedPieChart 
+                data={educationData} 
+                colorTheme="bronze"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-amber-50 p-4 rounded-lg border-amber-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                <strong>Graduate school is on many students' radar</strong>, whether immediately or eventually. 
+                This aligns with Mechatronics' strong academic foundation and the competitive advantage of advanced degrees in tech and research fields.
+              </p>
+            </div>
+          </div>
 
-          <ChartContainer 
-            title="Current Employment Status"
-            subtitle={PostTron.postGraduationPlans.currentEmployment.question}
-          >
-            <EnhancedPieChart 
-              data={employmentData} 
-              colorTheme="silver"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Current Employment Status"
+              subtitle={PostTron.postGraduationPlans.currentEmployment.question}
+            >
+              <EnhancedPieChart 
+                data={employmentData} 
+                colorTheme="silver"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-gray-50 p-4 rounded-lg border-gray-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                <strong>Strong employment numbers</strong> demonstrate the value of a Mechatronics degree in the job market. 
+                Employers actively recruit Waterloo engineers, and the co-op program provides direct pathways to full-time offers.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Second Row - Career Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <ChartContainer 
-            title="Top Employers"
-            subtitle="Companies where students will be working"
-          >
-            <EnhancedBarChart 
-              data={companyData} 
-              colorTheme="gold"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Top Employers"
+              subtitle="Companies where students will be working"
+            >
+              <EnhancedBarChart 
+                data={companyData} 
+                colorTheme="gold"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-yellow-50 p-4 rounded-lg border-yellow-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                <strong>Top tech and manufacturing companies</strong> are recruiting our graduates. 
+                This demonstrates that Mechatronics engineers are highly sought-after across industries—from automotive and aerospace to robotics and AI companies.
+              </p>
+            </div>
+          </div>
 
-          <ChartContainer 
-            title="Role Categories"
-            subtitle="Types of positions students are taking"
-          >
-            <EnhancedBarChart 
-              data={roleCategoryData} 
-              colorTheme="bronze"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Role Categories"
+              subtitle="Types of positions students are taking"
+            >
+              <EnhancedBarChart 
+                data={roleCategoryData} 
+                colorTheme="bronze"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-amber-50 p-4 rounded-lg border-amber-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                <strong>Role diversity reflects Mechatronics' versatility</strong>—from software engineering to mechanical design to leadership positions. 
+                Our graduates succeed not just as individual contributors but across the entire career spectrum.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Special Plans */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <ChartContainer 
-            title="Alternative Plans"
-            subtitle="Special future plans beyond traditional workforce entry"
-          >
-            <EnhancedPieChart 
-              data={specialPlansData} 
-              colorTheme="mixed"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Alternative Plans"
+              subtitle="Special future plans beyond traditional workforce entry"
+            >
+              <EnhancedPieChart 
+                data={specialPlansData} 
+                colorTheme="mixed"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-purple-50 p-4 rounded-lg border-purple-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                <strong>Entrepreneurship and non-traditional paths</strong> are part of the Tron narrative. 
+                Some graduates are starting companies, pursuing law school, teaching, or taking time to rest—showing the program empowers diverse life paths.
+              </p>
+            </div>
+          </div>
 
           {/* Notable Special Plans */}
           <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">

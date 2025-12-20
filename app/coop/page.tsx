@@ -3,6 +3,7 @@
 import { EnhancedPieChart, EnhancedBarChart, ChartContainer } from '@/components/charts/ChartLibrary';
 import PageContainer from '@/components/PageContainer';
 import coopData from '@/public/survey-data/4_work_terms_coops.json';
+import { Bot, Cpu, Heart, Lightbulb } from 'lucide-react';
 
 const CoopPage = () => {
   // Top Work Industries
@@ -92,29 +93,95 @@ const CoopPage = () => {
           </p>
         </div>
 
+        {/* Integration Pathways */}
+        <div className="mt-16 pt-12 border-t-2 border-gray-200 pb-5">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Integration Pathways</h2>
+          <p className="text-gray-600 mb-8">
+            What makes Mechatronics unique is how these disciplines converge in real-world applications:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6  border-blue-500 bg-blue-50 rounded-lg">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+                <Bot className="w-6 h-6" /> Robotics
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Mechanical design + Electrical control + Software logic = Intelligent robots
+              </p>
+            </div>
+
+            <div className="p-6  border-yellow-500 bg-yellow-50 rounded-lg">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+                <Lightbulb className="w-6 h-6" /> Machine Intelligence
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Advanced math + Control systems + Algorithms = Intelligent automation
+              </p>
+            </div>
+
+            <div className="p-6  border-green-500 bg-green-50 rounded-lg">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+                <Cpu className="w-6 h-6" /> PCB & Electronics Design
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Circuits + Digital logic + Sensors + Power electronics = Custom hardware
+              </p>
+            </div>
+
+            <div className="p-6  border-pink-500 bg-pink-50 rounded-lg">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+                <Heart className="w-6 h-6" /> Biomedical Design
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Mechanical + Electronics + Software = Healthcare devices & solutions
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Top Row */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          <ChartContainer 
-            title="Industry Categories"
-            subtitle="Breakdown of work experience by industry type"
-          >
-            <EnhancedPieChart 
-              data={industryGroupData} 
-              colorTheme="bronze"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Industry Categories"
+              subtitle="Breakdown of work experience by industry type"
+            >
+              <EnhancedPieChart 
+                data={industryGroupData} 
+                colorTheme="bronze"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-amber-50 p-4 rounded-lg border-amber-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                <strong>Software dominates</strong> with {softwareTotal} students, reflecting industry demand for digital transformation. 
+                However, strong representation across all categories shows Tron grads are equipped for diverse career paths in robotics, controls, and hardware design.
+              </p>
+            </div>
+          </div>
 
-          <ChartContainer 
-            title="Job Finding Methods"
-            subtitle="How students found their co-op positions"
-          >
-            <EnhancedPieChart 
-              data={jobFindingData} 
-              colorTheme="gold"
-              showTitle={false}
-            />
-          </ChartContainer>
+          <div>
+            <ChartContainer 
+              title="Job Finding Methods"
+              subtitle="How students found their co-op positions"
+            >
+              <EnhancedPieChart 
+                data={jobFindingData} 
+                colorTheme="gold"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-yellow-50 p-4 rounded-lg border-yellow-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+              <p className="text-sm text-gray-700">
+                <strong>WaterlooWorks</strong> remains the primary platform for job searches, but nearly 40% of students found positions through networking and direct applications. 
+                This highlights the value of building professional relationships and proactive outreach.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Industries Bar Chart */}
@@ -130,6 +197,14 @@ const CoopPage = () => {
               height={500}
             />
           </ChartContainer>
+          {/* Analysis */}
+          <div className="mt-4 bg-gray-50 p-4 rounded-lg border-gray-400">
+            <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+            <p className="text-sm text-gray-700">
+              <strong>Software developer roles lead</strong> with {topIndustries[0]?.[1] || 0} students, followed by varied hardware and embedded systems positions. 
+              The diversity reflects Mechatronics' unique strength: preparing graduates who understand both software AND physical systems.
+            </p>
+          </div>
         </div>
 
         {/* Success Factors */}
@@ -145,6 +220,14 @@ const CoopPage = () => {
               height={400}
             />
           </ChartContainer>
+          {/* Analysis */}
+          <div className="mt-4 bg-purple-50 p-4 rounded-lg border-purple-400">
+            <h4 className="font-semibold text-gray-800 mb-2">Insight</h4>
+            <p className="text-sm text-gray-700">
+              Success factors emphasize <strong>mentorship, learning opportunities, and team culture</strong>. 
+              Students value not just technical growth but also personal development and a supportive work environment—priorities that shape their career choices.
+            </p>
+          </div>
         </div>
 
         {/* Best Co-op Experience Highlights */}
