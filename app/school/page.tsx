@@ -1,6 +1,7 @@
 'use client';
 
 import { EnhancedBarChart, EnhancedPieChart, ChartContainer } from '@/components/charts/ChartLibrary';
+import PageContainer from '@/components/PageContainer';
 import universityData from '@/public/survey-data/6_university_experience.json';
 
 const SchoolPage = () => {
@@ -177,7 +178,7 @@ const SchoolPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-100 via-gray-200 to-yellow-100 p-4 md:p-8">
+    <PageContainer>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">University Experience</h1>
@@ -412,10 +413,8 @@ const SchoolPage = () => {
             </div>
             <div className="text-sm opacity-90">Would Choose Again</div>
           </div>
-        </div>
       </div>
-    </div>
+      </div>
+    </PageContainer>
   );
-};
-
-export default SchoolPage;
+};export default SchoolPage;

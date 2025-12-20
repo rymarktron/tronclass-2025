@@ -1,6 +1,7 @@
 'use client';
 
 import CurriculumMap from "@/components/CurriculumMap";
+import PageContainer from "@/components/PageContainer";
 import { Rocket, Settings, Zap, Monitor, Wrench, Target, Bot, Lightbulb, Cpu, Heart, Users, GraduationCap, CheckCircle } from 'lucide-react';
 
 export default function AboutPage() {
@@ -23,8 +24,9 @@ export default function AboutPage() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 py-16 md:py-24">
-        {/* About the Program Section */}
+      <PageContainer>
+        <div className="max-w-6xl mx-auto">
+          {/* About the Program Section */}
         <div className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">About the Program</h2>
@@ -239,7 +241,8 @@ export default function AboutPage() {
         </div>
 
         <CurriculumMap />
-      </div>
+        </div>
+      </PageContainer>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 'use client';
 
 import { EnhancedPieChart, EnhancedBarChart, ChartContainer } from '@/components/charts/ChartLibrary';
-import surveyData from '@/public/survey-data/1_streams.json';
+import PageContainer from '@/components/PageContainer';
+import streamsData from '@/public/survey-data/1_streams.json';
 
 const StreamsPage = () => {
   // Transfer Data Chart
@@ -9,8 +10,8 @@ const StreamsPage = () => {
     labels: ['No Transfer', 'Transferred'],
     datasets: [{
       data: [
-        surveyData.transferData.responses.no,
-        surveyData.transferData.responses.yes,
+        streamsData.transferData.responses.no,
+        streamsData.transferData.responses.yes,
       ],
     }],
   };
@@ -20,14 +21,14 @@ const StreamsPage = () => {
     labels: ['Stream 4', 'Stream 8'],
     datasets: [{
       data: [
-        surveyData.currentStream.responses.stream_4,
-        surveyData.currentStream.responses.stream_8,
+        streamsData.currentStream.responses.stream_4,
+        streamsData.currentStream.responses.stream_8,
       ],
     }],
   };
 
   // Initial Stream Choice Reasons
-  const initialChoiceReasons = surveyData.initialStreamChoice.responses;
+  const initialChoiceReasons = streamsData.initialStreamChoice.responses;
   const initialChoiceData = {
     labels: [
       'No Choice/Didn\'t Choose',
@@ -58,8 +59,8 @@ const StreamsPage = () => {
     labels: ['Stayed', 'Switched'],
     datasets: [{
       data: [
-        surveyData.streamSwitch.responses.no,
-        surveyData.streamSwitch.responses.yes,
+        streamsData.streamSwitch.responses.no,
+        streamsData.streamSwitch.responses.yes,
       ],
     }],
   };
@@ -70,16 +71,16 @@ const StreamsPage = () => {
     datasets: [{
       label: 'Number of Students',
       data: [
-        surveyData.transferTerm.responses['1B'],
-        surveyData.transferTerm.responses['2A'],
-        surveyData.transferTerm.responses['2B'],
-        surveyData.transferTerm.responses.after_2B,
+        streamsData.transferTerm.responses['1B'],
+        streamsData.transferTerm.responses['2A'],
+        streamsData.transferTerm.responses['2B'],
+        streamsData.transferTerm.responses.after_2B,
       ],
     }],
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-100 via-gray-200 to-yellow-100 p-4 md:p-8">
+    <PageContainer>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -94,7 +95,7 @@ const StreamsPage = () => {
           {/* Transfer Status */}
           <ChartContainer 
             title="Transfer into Mechatronics"
-            subtitle={surveyData.transferData.question}
+            subtitle={streamsData.transferData.question}
           >
             <EnhancedPieChart 
               data={transferData} 
@@ -106,7 +107,7 @@ const StreamsPage = () => {
           {/* Current Stream Distribution */}
           <ChartContainer 
             title="Current Stream Distribution"
-            subtitle={surveyData.currentStream.question}
+            subtitle={streamsData.currentStream.question}
           >
             <EnhancedPieChart 
               data={currentStreamData} 
@@ -118,7 +119,7 @@ const StreamsPage = () => {
           {/* Stream Switch */}
           <ChartContainer 
             title="Stream Switching"
-            subtitle={surveyData.streamSwitch.question}
+            subtitle={streamsData.streamSwitch.question}
           >
             <EnhancedPieChart 
               data={streamSwitchData} 
@@ -130,7 +131,7 @@ const StreamsPage = () => {
           {/* Transfer Term */}
           <ChartContainer 
             title="Transfer Term"
-            subtitle={surveyData.transferTerm.question}
+            subtitle={streamsData.transferTerm.question}
           >
             <EnhancedBarChart 
               data={transferTermData} 
@@ -144,7 +145,7 @@ const StreamsPage = () => {
         <div className="mb-8">
           <ChartContainer 
             title="Initial Stream Choice Reasons"
-            subtitle={surveyData.initialStreamChoice.question}
+            subtitle={streamsData.initialStreamChoice.question}
           >
             <EnhancedBarChart 
               data={initialChoiceData} 
@@ -158,10 +159,10 @@ const StreamsPage = () => {
         <div className="mb-8">
           <ChartContainer 
             title="Student Advice & Comments"
-            subtitle={surveyData.streamAdvice.question}
+            subtitle={streamsData.streamAdvice.question}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-h-96 overflow-y-auto">
-              {surveyData.streamAdvice.responses.map((advice, index) => (
+              {streamsData.streamAdvice.responses.map((advice: string, index: number) => (
                 <div
                   key={index}
                   className="bg-gradient-to-r from-amber-50 to-yellow-50 p-4 rounded-lg  border-amber-400"
@@ -177,33 +178,33 @@ const StreamsPage = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-gradient-to-r from-amber-400 to-yellow-500 p-6 rounded-lg text-center text-white">
             <div className="text-3xl font-bold">
-              {surveyData.transferData.responses.no + surveyData.transferData.responses.yes}
+              {streamsData.transferData.responses.no + streamsData.transferData.responses.yes}
             </div>
             <div className="text-sm opacity-90">Total Responses</div>
           </div>
           <div className="bg-gradient-to-r from-gray-400 to-gray-500 p-6 rounded-lg text-center text-white">
             <div className="text-3xl font-bold">
-              {Math.round((surveyData.transferData.responses.yes / 
-                (surveyData.transferData.responses.no + surveyData.transferData.responses.yes)) * 100)}%
+              {Math.round((streamsData.transferData.responses.yes / 
+                (streamsData.transferData.responses.no + streamsData.transferData.responses.yes)) * 100)}%
             </div>
             <div className="text-sm opacity-90">Transfer Rate</div>
           </div>
           <div className="bg-gradient-to-r from-yellow-600 to-orange-600 p-6 rounded-lg text-center text-white">
             <div className="text-3xl font-bold">
-              {surveyData.currentStream.responses.stream_8}
+              {streamsData.currentStream.responses.stream_8}
             </div>
             <div className="text-sm opacity-90">Stream 8 Students</div>
           </div>
           <div className="bg-gradient-to-r from-amber-600 to-yellow-700 p-6 rounded-lg text-center text-white">
             <div className="text-3xl font-bold">
-              {Math.round((surveyData.streamSwitch.responses.yes / 
-                (surveyData.streamSwitch.responses.no + surveyData.streamSwitch.responses.yes)) * 100)}%
+              {Math.round((streamsData.streamSwitch.responses.yes / 
+                (streamsData.streamSwitch.responses.no + streamsData.streamSwitch.responses.yes)) * 100)}%
             </div>
             <div className="text-sm opacity-90">Switch Rate</div>
           </div>
         </div>
       </div>
-    </div>
+    </PageContainer>
   );
 };
 

@@ -1,7 +1,8 @@
 'use client';
 
 import { EnhancedPieChart, EnhancedBarChart, ChartContainer } from '@/components/charts/ChartLibrary';
-import postTronData from '@/public/survey-data/8_post_tron.json';
+import PageContainer from '@/components/PageContainer';
+import PostTron from '@/public/survey-data/8_post_tron.json';
 import reflectionsData from '@/public/survey-data/9_reflections_and_future.json';
 
 const FuturePlansPage = () => {
@@ -10,10 +11,10 @@ const FuturePlansPage = () => {
     labels: ['Yes', 'No', 'Undecided', 'Eventually'],
     datasets: [{
       data: [
-        postTronData.postGraduationPlans.workforcePlans.responses.yes,
-        postTronData.postGraduationPlans.workforcePlans.responses.no,
-        postTronData.postGraduationPlans.workforcePlans.responses.undecided,
-        postTronData.postGraduationPlans.workforcePlans.responses.eventually,
+        PostTron.postGraduationPlans.workforcePlans.responses.yes,
+        PostTron.postGraduationPlans.workforcePlans.responses.no,
+        PostTron.postGraduationPlans.workforcePlans.responses.undecided,
+        PostTron.postGraduationPlans.workforcePlans.responses.eventually,
       ],
     }],
   };
@@ -23,9 +24,9 @@ const FuturePlansPage = () => {
     labels: ['Yes', 'No', 'Maybe'],
     datasets: [{
       data: [
-        postTronData.postGraduationPlans.furtherEducation.responses.yes,
-        postTronData.postGraduationPlans.furtherEducation.responses.no,
-        postTronData.postGraduationPlans.furtherEducation.responses.maybe,
+        PostTron.postGraduationPlans.furtherEducation.responses.yes,
+        PostTron.postGraduationPlans.furtherEducation.responses.no,
+        PostTron.postGraduationPlans.furtherEducation.responses.maybe,
       ],
     }],
   };
@@ -35,14 +36,14 @@ const FuturePlansPage = () => {
     labels: ['Employed (Signed Offer)', 'Not Employed'],
     datasets: [{
       data: [
-        postTronData.postGraduationPlans.currentEmployment.responses.yes,
-        postTronData.postGraduationPlans.currentEmployment.responses.no,
+        PostTron.postGraduationPlans.currentEmployment.responses.yes,
+        PostTron.postGraduationPlans.currentEmployment.responses.no,
       ],
     }],
   };
 
   // Top Companies (Tesla, ATS, Startup, etc.)
-  const topCompanies = Object.entries(postTronData.postGraduationPlans.employedCompanies.topCompanies)
+  const topCompanies = Object.entries(PostTron.postGraduationPlans.employedCompanies.topCompanies)
     .sort(([,a], [,b]) => b - a)
     .slice(0, 8);
 
@@ -55,7 +56,7 @@ const FuturePlansPage = () => {
   };
 
   // Role Categories
-  const roleCategories = postTronData.postGraduationPlans.positionTitles.roleCategories;
+  const roleCategories = PostTron.postGraduationPlans.positionTitles.roleCategories;
   const roleCategoryData = {
     labels: Object.keys(roleCategories).map(role => 
       role.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
@@ -71,16 +72,16 @@ const FuturePlansPage = () => {
     labels: ['Entrepreneurship', 'Law School', 'Teaching', 'Sleep'],
     datasets: [{
       data: [
-        postTronData.postGraduationPlans.specialPlans.categories.entrepreneurship,
-        postTronData.postGraduationPlans.specialPlans.categories.law_school,
-        postTronData.postGraduationPlans.specialPlans.categories.teaching,
-        postTronData.postGraduationPlans.specialPlans.categories.sleep,
+        PostTron.postGraduationPlans.specialPlans.categories.entrepreneurship,
+        PostTron.postGraduationPlans.specialPlans.categories.law_school,
+        PostTron.postGraduationPlans.specialPlans.categories.teaching,
+        PostTron.postGraduationPlans.specialPlans.categories.sleep,
       ],
     }],
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-100 via-gray-200 to-yellow-100 p-4 md:p-8">
+    <PageContainer>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Future Plans</h1>
@@ -93,7 +94,7 @@ const FuturePlansPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           <ChartContainer 
             title="Entering Workforce"
-            subtitle={postTronData.postGraduationPlans.workforcePlans.question}
+            subtitle={PostTron.postGraduationPlans.workforcePlans.question}
           >
             <EnhancedPieChart 
               data={workforceData} 
@@ -104,7 +105,7 @@ const FuturePlansPage = () => {
 
           <ChartContainer 
             title="Further Education Plans"
-            subtitle={postTronData.postGraduationPlans.furtherEducation.question}
+            subtitle={PostTron.postGraduationPlans.furtherEducation.question}
           >
             <EnhancedPieChart 
               data={educationData} 
@@ -115,7 +116,7 @@ const FuturePlansPage = () => {
 
           <ChartContainer 
             title="Current Employment Status"
-            subtitle={postTronData.postGraduationPlans.currentEmployment.question}
+            subtitle={PostTron.postGraduationPlans.currentEmployment.question}
           >
             <EnhancedPieChart 
               data={employmentData} 
@@ -167,7 +168,7 @@ const FuturePlansPage = () => {
           <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Notable Future Plans</h2>
             <div className="space-y-3">
-              {postTronData.postGraduationPlans.specialPlans.responses.map((plan, index) => (
+              {PostTron.postGraduationPlans.specialPlans.responses.map((plan, index) => (
                 <div key={index} className="bg-gradient-to-r from-amber-50 to-yellow-50 p-3 rounded-lg  border-amber-400">
                   <p className="text-gray-700 italic">&ldquo;{plan}&rdquo;</p>
                 </div>
@@ -206,33 +207,31 @@ const FuturePlansPage = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-gradient-to-r from-amber-400 to-yellow-500 p-6 rounded-lg text-center text-white">
             <div className="text-3xl font-bold">
-              {Math.round((postTronData.postGraduationPlans.currentEmployment.responses.yes / 
-                (postTronData.postGraduationPlans.currentEmployment.responses.yes + postTronData.postGraduationPlans.currentEmployment.responses.no)) * 100)}%
+              {Math.round((PostTron.postGraduationPlans.currentEmployment.responses.yes / 
+                (PostTron.postGraduationPlans.currentEmployment.responses.yes + PostTron.postGraduationPlans.currentEmployment.responses.no)) * 100)}%
             </div>
             <div className="text-sm opacity-90">Have Job Offers</div>
           </div>
           <div className="bg-gradient-to-r from-gray-400 to-gray-500 p-6 rounded-lg text-center text-white">
             <div className="text-3xl font-bold">
-              {postTronData.postGraduationPlans.employedCompanies.topCompanies.tesla}
+              {PostTron.postGraduationPlans.employedCompanies.topCompanies.tesla}
             </div>
             <div className="text-sm opacity-90">Going to Tesla</div>
           </div>
           <div className="bg-gradient-to-r from-yellow-600 to-orange-600 p-6 rounded-lg text-center text-white">
             <div className="text-3xl font-bold">
-              {postTronData.postGraduationPlans.positionTitles.roleCategories.software_engineer}
+              {PostTron.postGraduationPlans.positionTitles.roleCategories.software_engineer}
             </div>
             <div className="text-sm opacity-90">Software Engineers</div>
           </div>
           <div className="bg-gradient-to-r from-amber-600 to-yellow-700 p-6 rounded-lg text-center text-white">
             <div className="text-3xl font-bold">
-              {postTronData.postGraduationPlans.specialPlans.categories.entrepreneurship}
+              {PostTron.postGraduationPlans.specialPlans.categories.entrepreneurship}
             </div>
             <div className="text-sm opacity-90">Starting Startups</div>
           </div>
-        </div>
       </div>
-    </div>
+      </div>
+    </PageContainer>
   );
-};
-
-export default FuturePlansPage;
+};export default FuturePlansPage;

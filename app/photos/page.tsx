@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import PageContainer from '@/components/PageContainer';
 import { Camera, X } from 'lucide-react';
 
 interface Photo {
@@ -125,10 +126,10 @@ const PhotosPage = () => {
   };
 
   return (
-        <div className="min-h-screen bg-gradient-to-br from-amber-100 via-gray-200 to-yellow-100 p-4 md:p-8">
-    <div className="min-h-screen p-4 md:p-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
+    <>
+      <PageContainer>
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-amber-500 to-yellow-600 text-white mx-auto mb-4">
             <Camera className="w-8 h-8" />
@@ -217,7 +218,7 @@ const PhotosPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </PageContainer>
 
     {/* Photo Lightbox Modal */}
     {selectedPhoto && (
@@ -270,7 +271,7 @@ const PhotosPage = () => {
         </div>
       </div>
     )}
-  </div>
+    </>
   );
 };
 

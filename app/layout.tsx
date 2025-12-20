@@ -15,7 +15,36 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Tron Class 2025 Survey",
-  description: "Class survey results and data visualization for Mechatronics Engineering",
+  description: "Comprehensive survey results and data visualization for the University of Waterloo Mechatronics Engineering Class of 2025",
+  openGraph: {
+    title: 'Tron Class 2025 - Mechatronics Engineering Survey',
+    description: 'Explore the experiences, achievements, and insights of the Waterloo Mechatronics Class of 2025',
+    type: 'website',
+    url: 'https://tronclass-2025.vercel.app',
+    images: [
+      {
+        url: 'https://tronclass-2025.vercel.app/SEO_TITLE.png',
+        alt: 'Mechatronics Engineering Class of 2025',
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tron Class 2025 - Mechatronics Engineering Survey',
+    description: 'Comprehensive survey results and data visualization for the Waterloo Mechatronics Class of 2025',
+    images: ['https://tronclass-2025.vercel.app/SEO_TITLE.png'],
+  },
+  keywords: [
+    'Mechatronics',
+    'Engineering',
+    'University of Waterloo',
+    'Class of 2025',
+    'Survey',
+    'Data Visualization',
+    'Education',
+  ],
 };
 
 export default function RootLayout({

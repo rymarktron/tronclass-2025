@@ -1,6 +1,7 @@
 'use client';
 
 import { EnhancedPieChart, EnhancedBarChart, ChartContainer } from '@/components/charts/ChartLibrary';
+import PageContainer from '@/components/PageContainer';
 import coopData from '@/public/survey-data/4_work_terms_coops.json';
 
 const CoopPage = () => {
@@ -82,7 +83,7 @@ const CoopPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-100 via-gray-200 to-yellow-100 p-4 md:p-8">
+    <PageContainer>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Co-op Experience</h1>
@@ -211,10 +212,8 @@ const CoopPage = () => {
             </div>
             <div className="text-sm opacity-90">Experience Stories</div>
           </div>
-        </div>
       </div>
-    </div>
+      </div>
+    </PageContainer>
   );
-};
-
-export default CoopPage;
+};export default CoopPage;
