@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: 'https://tronclass-2025.vercel.app',
     images: [
       {
-        url: 'https://tronclass-2025.vercel.app/SEO_TITLE.png',
+        url: 'https://tronclass-2025.vercel.app/SEO_Title.png',
         alt: 'Mechatronics Engineering Class of 2025',
         width: 1200,
         height: 630,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Tron Class 2025 - Mechatronics Engineering Survey',
     description: 'Comprehensive survey results and data visualization for the Waterloo Mechatronics Class of 2025',
-    images: ['https://tronclass-2025.vercel.app/SEO_TITLE.png'],
+    images: ['https://tronclass-2025.vercel.app/SEO_Title.png'],
   },
   keywords: [
     'Mechatronics',

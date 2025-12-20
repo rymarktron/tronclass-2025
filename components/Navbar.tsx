@@ -28,7 +28,7 @@ const Navbar = () => {
     <>
       {/* Mobile navbar */}
       <div className="md:hidden">
-        <nav className="bg-zinc-500 fixed top-0 left-0 right-0 z-50">
+        <nav className="bg-zinc-400 fixed top-0 left-0 right-0 z-50">
           <div className="px-4">
             <div className="flex justify-between items-center h-16">
               <Link href="/" className="flex items-center text-2xl font-bold text-white">
@@ -48,7 +48,7 @@ const Navbar = () => {
           </div>
           
           {/* Mobile menu */}
-          <div className={`${isOpen ? 'block' : 'hidden'} bg-zinc-500`}>
+          <div className={`${isOpen ? 'block' : 'hidden'} bg-zinc-400`}>
             <div className="px-2 pt-2 pb-3 space-y-1 max-h-96 overflow-y-auto">
               {navigation.map((item) => (
                 <Link
