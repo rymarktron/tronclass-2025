@@ -116,7 +116,7 @@ const DemographicsPage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+            <div className="mt-4 bg-yellow-50 p-4 rounded-lg  border-yellow-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 <strong>{Math.round((demographicsData.internationalStudent.responses.yes / 
@@ -139,7 +139,7 @@ const DemographicsPage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-gray-50 p-4 rounded-lg border-l-4 border-gray-400">
+            <div className="mt-4 bg-gray-50 p-4 rounded-lg  border-gray-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 <strong>{Math.round(((demographicsData.gender.responses.male_cis + demographicsData.gender.responses.male_trans) / 
@@ -165,7 +165,7 @@ const DemographicsPage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+            <div className="mt-4 bg-orange-50 p-4 rounded-lg  border-orange-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 Income distribution shows significant economic diversity within the class, with representation across multiple brackets. 
@@ -187,7 +187,7 @@ const DemographicsPage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+            <div className="mt-4 bg-purple-50 p-4 rounded-lg  border-purple-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 Strong educational background in families, with <strong>{Math.round((familyData.parentEducation.responses.post_secondary + 
@@ -214,7 +214,7 @@ const DemographicsPage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400">
+            <div className="mt-4 bg-amber-50 p-4 rounded-lg  border-amber-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 Significant ethnic diversity with representation across multiple backgrounds, including 
@@ -237,7 +237,7 @@ const DemographicsPage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+            <div className="mt-4 bg-yellow-50 p-4 rounded-lg  border-yellow-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 Family structure varies widely, with <strong>{Math.max(...siblingsData.datasets[0].data)} students</strong> in the most common category. 

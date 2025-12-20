@@ -164,7 +164,7 @@ const StreamsPage = () => {
               {surveyData.streamAdvice.responses.map((advice, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-r from-amber-50 to-yellow-50 p-4 rounded-lg border-l-4 border-amber-400"
+                  className="bg-gradient-to-r from-amber-50 to-yellow-50 p-4 rounded-lg  border-amber-400"
                 >
                   <p className="text-gray-700 italic text-sm">&ldquo;{advice}&rdquo;</p>
                 </div>

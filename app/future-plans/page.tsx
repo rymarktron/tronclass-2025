@@ -168,7 +168,7 @@ const FuturePlansPage = () => {
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Notable Future Plans</h2>
             <div className="space-y-3">
               {postTronData.postGraduationPlans.specialPlans.responses.map((plan, index) => (
-                <div key={index} className="bg-gradient-to-r from-amber-50 to-yellow-50 p-3 rounded-lg border-l-4 border-amber-400">
+                <div key={index} className="bg-gradient-to-r from-amber-50 to-yellow-50 p-3 rounded-lg  border-amber-400">
                   <p className="text-gray-700 italic">&ldquo;{plan}&rdquo;</p>
                 </div>
               ))}

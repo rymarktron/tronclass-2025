@@ -154,7 +154,7 @@ const CoopPage = () => {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-96 overflow-y-auto">
               {coopData.bestCoopExperiences.responses.slice(0, 12).map((exp, index) => (
-                <div key={index} className="bg-gradient-to-r from-amber-50 to-yellow-50 p-4 rounded-lg border-l-4 border-amber-400">
+                <div key={index} className="bg-gradient-to-r from-amber-50 to-yellow-50 p-4 rounded-lg  border-amber-400">
                   <p className="text-gray-700 italic text-sm mb-2">&ldquo;{exp.response}&rdquo;</p>
                   <div className="flex flex-wrap gap-1 mt-2">
                     {exp.key_factors.map((factor, idx) => (

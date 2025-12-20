@@ -12,16 +12,13 @@ const Navbar = () => {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Curriculum', href: '/curriculum' },
     { name: 'Demographics', href: '/demographics' },
     { name: 'School', href: '/school' },
     { name: 'Co-op', href: '/coop' },
     { name: 'Lifestyle', href: '/lifestyle' },
     { name: 'Mental Health', href: '/mental-health' },
-    { name: 'Relationships', href: '/relationships' },
-    { name: 'Personal Dev', href: '/personal-development' },
     { name: 'Future Plans', href: '/future-plans' },
-    { name: 'Advice', href: '/advice' },
+    { name: 'Contributors', href: '/contributors' },
     { name: 'Photos', href: '/photos' },
   ];
 
@@ -72,33 +69,33 @@ const Navbar = () => {
         <div className="h-16"></div>
       </div>
 
-      {/* Desktop sidebar */}
+      {/* Desktop navbar - left side, vertically centered, no background */}
       <div className="hidden md:block">
-        <nav className="fixed top-0 left-0 h-full w-64 bg-gradient-to-b from-amber-900/90 via-gray-700/90 to-yellow-700/90 backdrop-blur-sm shadow-xl z-50 overflow-y-auto">
-          <div className="p-6">
-            <Link href="/" className="flex items-center text-3xl font-bold text-white mb-8">
-              <Image src="/t25.svg" alt="tron 25' Logo" width={50} height={50} className="inline-block mr-3" />
-            </Link>
-            
-            <div className="space-y-2">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    pathname === item.href
-                      ? 'bg-white/20 text-white shadow-md'
-                      : 'text-white/80 hover:text-white hover:bg-white/10 hover:shadow-sm'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+        <nav className="fixed left-0 top-0 h-screen bg-transparent z-50 flex items-center">
+          <div className="pl-8">
+            <div className="flex flex-col items-center gap-8">
+              <Link href="/" className="flex items-center text-3xl font-bold text-gray-900">
+                <Image src="/t25.svg" alt="tron 25' Logo" width={50} height={50} className="inline-block" />
+              </Link>
+              
+              <div className="flex flex-col gap-2">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`px-4 py-2 rounded-lg text-base font-bold transition-all duration-200 ${
+                      pathname === item.href
+                        ? 'text-purple-600 font-black'
+                        : 'text-gray-700 hover:text-purple-600'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </nav>
-        {/* Spacer for desktop */}
-        <div className="w-64"></div>
       </div>
     </>
   );

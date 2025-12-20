@@ -137,7 +137,7 @@ const LifestylePage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400">
+            <div className="mt-4 bg-amber-50 p-4 rounded-lg  border-amber-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 <strong>73%</strong> of Tron students have been in romantic relationships, indicating a socially active student body. 
@@ -158,7 +158,7 @@ const LifestylePage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+            <div className="mt-4 bg-orange-50 p-4 rounded-lg  border-orange-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 <strong>63%</strong> of students drink alcohol, reflecting typical university social culture. 
@@ -179,7 +179,7 @@ const LifestylePage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-gray-50 p-4 rounded-lg border-l-4 border-gray-400">
+            <div className="mt-4 bg-gray-50 p-4 rounded-lg  border-gray-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 Cannabis use is split with <strong>55%</strong> not using, <strong>38%</strong> using, and <strong>7%</strong> uncertain. 
@@ -203,7 +203,7 @@ const LifestylePage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+            <div className="mt-4 bg-purple-50 p-4 rounded-lg  border-purple-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 <strong>43%</strong> are sexually active, while <strong>24%</strong> are not. <strong>16%</strong> are occasional, 
@@ -224,7 +224,7 @@ const LifestylePage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+            <div className="mt-4 bg-yellow-50 p-4 rounded-lg  border-yellow-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 <strong>87%</strong> avoid hard drugs, showing responsible choices among engineering students. 
@@ -253,7 +253,7 @@ const LifestylePage = () => {
               </div>
             </div>
             {/* Analysis for Rice Purity */}
-            <div className="mt-4 bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+            <div className="mt-4 bg-orange-50 p-4 rounded-lg  border-orange-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 Average score of <strong>{avgScore}</strong> indicates moderate life experiences. 
@@ -288,7 +288,7 @@ const LifestylePage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+            <div className="mt-4 bg-blue-50 p-4 rounded-lg  border-blue-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 Engineering workload impact is evident: <strong>{healthData.sleepPatterns.responses['7_8_hours']} students</strong> get 7-8 hours of sleep, 
@@ -312,7 +312,7 @@ const LifestylePage = () => {
               />
             </ChartContainer>
             {/* Analysis */}
-            <div className="mt-4 bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+            <div className="mt-4 bg-purple-50 p-4 rounded-lg  border-purple-400">
               <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
               <p className="text-sm text-gray-700">
                 The distribution shows typical university-age patterns with most responses at lower values, 

@@ -1,11 +1,13 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Metallic gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-200 via-gray-300 via-yellow-200 to-amber-300"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-200 via-gray-300 via-purple-400 to-indigo-500"></div>
       
       {/* Metallic overlay with iridescent effect */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400/30 via-gray-400/20 via-amber-300/40 to-yellow-500/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/30 via-gray-400/20 via-indigo-300/40 to-purple-600/30"></div>
       
       {/* Additional metallic sheen */}
       <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-white/10 to-transparent"></div>
@@ -73,17 +75,12 @@ export default function Home() {
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-8xl md:text-9xl font-bold text-white mb-8 drop-shadow-2xl tracking-tight">
-            tron 25&apos;
+            <Image src="/t25.svg" alt="tron 25' Logo" width={150} height={150} className="inline-block mb-4" />
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
             Mechatronics Engineering Class of 2025 Survey Results
           </p>
-
-          {/* Profile image placeholder (top right corner) */}
-          <div className="absolute top-8 right-8 w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/30 flex items-center justify-center">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-yellow-600"></div>
-          </div>
 
           {/* Survey categories preview */}
           <div className="mt-16 text-white/80">
