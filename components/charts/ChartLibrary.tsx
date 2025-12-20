@@ -24,47 +24,47 @@ ChartJS.register(
   ChartDataLabels
 );
 
-// Bronze, Silver, Gold color palettes
+// Yellow, Purple, Grey color palettes
 export const colorThemes = {
   bronze: [
-    '#CD7F32', // Bronze
-    '#B8860B', // Dark goldenrod
-    '#DAA520', // Goldenrod
-    '#D2B48C', // Tan
-    '#F4A460', // Sandy brown
-    '#DEB887', // Burlywood
-    '#BC9A6A', // Light bronze
-    '#A0522D', // Sienna
+    '#FFD700', // Gold yellow
+    '#9B4789', // Dark purple
+    '#7A7A7A', // Dark grey
+    '#FFC72C', // Golden poppy
+    '#BA55D3', // Medium orchid
+    '#A9A9A9', // Dark grey
+    '#FFBF00', // Amber
+    '#DA70D6', // Orchid
   ],
   silver: [
-    '#C0C0C0', // Silver
-    '#A9A9A9', // Dark gray
-    '#D3D3D3', // Light gray
-    '#708090', // Slate gray
-    '#B0B0B0', // Light silver
-    '#8C8C8C', // Medium gray
-    '#DCDCDC', // Gainsboro
-    '#696969', // Dim gray
+    '#FFE135', // Sunshine yellow
+    '#8B4789', // Dark purple
+    '#B0B0B0', // Light grey
+    '#FFDF00', // Golden yellow
+    '#9370DB', // Medium purple
+    '#808080', // Grey
+    '#FFB347', // Light orange
+    '#DDA0DD', // Plum
   ],
   gold: [
-    '#FFD700', // Gold
     '#FFA500', // Orange
+    '#6B5B95', // Muted purple
+    '#9B9B9B', // Medium grey
     '#FF8C00', // Dark orange
-    '#FFDF00', // Golden yellow
-    '#FFBF00', // Amber
-    '#FFB347', // Light orange
-    '#FFC72C', // Golden poppy
-    '#FFAA00', // Orange peel
+    '#8B5A8E', // Medium purple
+    '#BEBEBE', // Grey
+    '#FFB90F', // Dark goldenrod
+    '#C8A2D0', // Light purple
   ],
   mixed: [
-    '#CD7F32', // Bronze
-    '#C0C0C0', // Silver  
-    '#FFD700', // Gold
-    '#B8860B', // Dark bronze
-    '#A9A9A9', // Dark silver
-    '#FFA500', // Orange gold
-    '#BC9A6A', // Light bronze
-    '#D3D3D3', // Light silver
+    '#FFD700', // Gold yellow
+    '#9B4789', // Dark purple
+    '#7A7A7A', // Dark grey
+    '#FFC72C', // Golden poppy
+    '#BA55D3', // Medium orchid
+    '#A9A9A9', // Dark grey
+    '#FFBF00', // Amber
+    '#DA70D6', // Orchid
   ]
 };
 

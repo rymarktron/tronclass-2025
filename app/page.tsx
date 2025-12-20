@@ -1,6 +1,24 @@
+'use client';
+
 import Image from "next/image";
+import Link from "next/link";
+
+const navigation = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Demographics', href: '/demographics' },
+  { name: 'Streams', href: '/streams' },
+  { name: 'School', href: '/school' },
+  { name: 'Co-op', href: '/coop' },
+  { name: 'Lifestyle', href: '/lifestyle' },
+  { name: 'Mental Health', href: '/mental-health' },
+  { name: 'Future Plans', href: '/future-plans' },
+  { name: 'Contributors', href: '/contributors' },
+  { name: 'Photos', href: '/photos' },
+];
 
 export default function Home() {
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Metallic gradient background */}
@@ -86,10 +104,10 @@ export default function Home() {
           <div className="mt-16 text-white/80">
             <p className="text-lg mb-4">Explore survey data across these categories:</p>
             <div className="flex flex-wrap justify-center gap-3 text-sm">
-              {['Demographics', 'School', 'Co-op', 'Lifestyle', 'Mental Health', 'Relationships', 'Personal Dev', 'Future Plans', 'Advice', 'Photos'].map((category) => (
-                <span key={category} className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                  {category}
-                </span>
+              {navigation.slice(2).map((item) => (
+                <Link key={item.name} href={item.href} className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 hover:border-white/40 transition-colors">
+                  {item.name}
+                </Link>
               ))}
             </div>
           </div>
