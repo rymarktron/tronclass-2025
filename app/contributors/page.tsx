@@ -190,19 +190,7 @@ export default function ContributorsPage() {
               <ul className="space-y-2 text-gray-800">
                 <li className="flex items-center gap-2">
                   <span className="text-amber-500 font-bold">✓</span>
-                  <span>Thank you for setting the precedent that documentation and reflection are important</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-amber-500 font-bold">✓</span>
-                  <span>Thank you for openly sharing your experiences and being vulnerable with us</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-amber-500 font-bold">✓</span>
-                  <span>Thank you for inspiring us to continue this tradition and make it our own</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-amber-500 font-bold">✓</span>
-                  <span>Thank you for being role models of excellence, resilience, and community</span>
+                  <span>Thank you to Jesse, Ryan, Nathan, and Alvin for creating survey and leading the design and deployment of the site.</span>
                 </li>
               </ul>
             </div>
