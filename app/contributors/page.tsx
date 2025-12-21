@@ -8,10 +8,14 @@ export default function ContributorsPage() {
     <PageContainer>
       <div className="max-w-6xl mx-auto">
         {/* Main Acknowledgment Section */}
-
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Contributors</h1>
+          <p className="text-lg text-gray-600">
+            A heartfelt thank you to everyone who contributed to the Class of 2025 survey and website.
+          </p>
+        </div>
         {/* Special Thanks Section */}
         <div className="bg-gradient-to-r from-amber-500/10 to-yellow-600/10 rounded-2xl p-8 md:p-12 border-2 border-amber-200 mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Contributors</h2>
           <div className="flex items-start gap-4">
             <Heart className="w-8 h-8 text-red-500 flex-shrink-0 mt-1" />
             <div>

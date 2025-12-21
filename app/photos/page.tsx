@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import PageContainer from '@/components/PageContainer';
-import { Camera, X } from 'lucide-react';
+import { Camera, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Photo {
   id: string;
@@ -17,6 +17,7 @@ interface Photo {
 
 const PhotosPage = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number>(-1);
 
   // Gallery photos with descriptions - you can update these after
   const photos: Photo[] = [
@@ -89,7 +90,7 @@ const PhotosPage = () => {
       alt: 'Final Year',
       year: '4',
       term: '4B',
-      description: 'In Ring Ceremony',
+      description: 'Iron Ring Ceremony',
       category: 'academic',
     },
     {
@@ -148,6 +149,27 @@ const PhotosPage = () => {
     { year: 4, label: 'Fourth Year', terms: ['4A', '4B'] },
   ];
 
+  const openPhoto = (photo: Photo, index: number) => {
+    setSelectedPhoto(photo);
+    setSelectedPhotoIndex(index);
+  };
+
+  const goToPrevious = () => {
+    if (selectedPhotoIndex > 0) {
+      const newIndex = selectedPhotoIndex - 1;
+      setSelectedPhoto(photos[newIndex]);
+      setSelectedPhotoIndex(newIndex);
+    }
+  };
+
+  const goToNext = () => {
+    if (selectedPhotoIndex < photos.length - 1) {
+      const newIndex = selectedPhotoIndex + 1;
+      setSelectedPhoto(photos[newIndex]);
+      setSelectedPhotoIndex(newIndex);
+    }
+  };
+
   const getPhotosForTerm = (year: string, term: string) => {
     return photos.filter(p => p.year === year && p.term === term);
   };
@@ -158,10 +180,7 @@ const PhotosPage = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
         <div className="text-center mb-12">
-          <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-amber-500 to-yellow-600 text-white mx-auto mb-4">
-            <Camera className="w-8 h-8" />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Our Undergrad Journey
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -207,10 +226,10 @@ const PhotosPage = () => {
                         {/* Photos Grid */}
                         <div className="grid grid-cols-2 gap-3">
                           {termPhotos.length > 0 ? (
-                            termPhotos.map(photo => (
+                            termPhotos.map((photo, idx) => (
                               <div
                                 key={photo.id}
-                                onClick={() => setSelectedPhoto(photo)}
+                                onClick={() => openPhoto(photo, photos.indexOf(photo))}
                                 className={`rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all border-2 cursor-pointer ${
                                   getCategoryColor(photo.category)
                                 }`}
@@ -261,13 +280,13 @@ const PhotosPage = () => {
 
         {/* Modal Content */}
         <div
-          className="relative z-50 w-full max-w-4xl"
+          className="relative z-50 w-full max-w-6xl"
           onClick={e => e.stopPropagation()}
         >
           {/* Close Button */}
           <button
             onClick={() => setSelectedPhoto(null)}
-            className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
+            className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors z-50"
             aria-label="Close"
           >
             <X className="w-8 h-8" />
@@ -275,14 +294,40 @@ const PhotosPage = () => {
 
           {/* Image Container */}
           <div className="relative w-full bg-black rounded-lg overflow-hidden">
-            <div className="relative aspect-video">
+            <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
               <Image
                 src={selectedPhoto.src}
                 alt={selectedPhoto.alt}
                 fill
                 className="object-contain"
                 sizes="(max-width: 1536px) 100vw, 1536px"
+                priority
               />
+            </div>
+
+            {/* Left Arrow */}
+            <button
+              onClick={goToPrevious}
+              disabled={selectedPhotoIndex === 0}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 disabled:opacity-30 disabled:cursor-not-allowed transition-all z-40"
+              aria-label="Previous photo"
+            >
+              <ChevronLeft className="w-12 h-12" />
+            </button>
+
+            {/* Right Arrow */}
+            <button
+              onClick={goToNext}
+              disabled={selectedPhotoIndex === photos.length - 1}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 disabled:opacity-30 disabled:cursor-not-allowed transition-all z-40"
+              aria-label="Next photo"
+            >
+              <ChevronRight className="w-12 h-12" />
+            </button>
+
+            {/* Photo Counter */}
+            <div className="absolute top-4 right-4 bg-black/60 px-4 py-2 rounded-lg text-white text-sm font-semibold z-40">
+              {selectedPhotoIndex + 1} / {photos.length}
             </div>
 
             {/* Description at Bottom */}
