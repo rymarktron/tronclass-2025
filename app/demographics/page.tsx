@@ -1,9 +1,17 @@
 'use client';
 
+import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { EnhancedPieChart, EnhancedBarChart, ChartContainer } from '@/components/charts/ChartLibrary';
 import PageContainer from '@/components/PageContainer';
 import demographicsData from '@/public/survey-data/2_personal_demographics.json';
 import familyData from '@/public/survey-data/3_family_and_household.json';
+
+// Dynamically import BirthCountryMap to avoid hydration errors
+const BirthCountryMap = dynamic(() => import('@/components/BirthCountryMap'), {
+  ssr: false,
+  loading: () => <div className="w-full bg-blue-50 rounded-lg p-8 text-center text-gray-600">Loading map...</div>,
+});
 
 const DemographicsPage = () => {
   // International Student Pie Chart
@@ -92,6 +100,71 @@ const DemographicsPage = () => {
       ],
     }],
   };
+
+  // Birth Country - Top International Countries
+  const birthCountryBarData = {
+    labels: ['India', 'United States', 'China', 'Egypt', 'Taiwan', 'Trinidad & Tobago', 'Nigeria', 'Pakistan', 'Others'],
+    datasets: [{
+      label: 'Number of Students',
+      data: [
+        demographicsData.birthCountry.responses.india,
+        demographicsData.birthCountry.responses.united_states,
+        demographicsData.birthCountry.responses.china,
+        demographicsData.birthCountry.responses.egypt,
+        demographicsData.birthCountry.responses.taiwan,
+        demographicsData.birthCountry.responses.trinidad_and_tobago,
+        demographicsData.birthCountry.responses.nigeria,
+        demographicsData.birthCountry.responses.pakistan,
+        // Calculate "Others" category
+        Object.values(demographicsData.birthCountry.responses).reduce((a, b) => a + b, 0) - 
+        (demographicsData.birthCountry.responses.india + demographicsData.birthCountry.responses.united_states + 
+         demographicsData.birthCountry.responses.china + demographicsData.birthCountry.responses.egypt + 
+         demographicsData.birthCountry.responses.taiwan + demographicsData.birthCountry.responses.trinidad_and_tobago + 
+         demographicsData.birthCountry.responses.nigeria + demographicsData.birthCountry.responses.pakistan +
+         demographicsData.birthCountry.responses.canada),
+      ],
+    }],
+  };
+
+  // Language Count Distribution
+  const languageCountData = {
+    labels: ['1 Language', '2 Languages', '3 Languages', '4 Languages', '5 Languages', '6+ Languages'],
+    datasets: [{
+      label: 'Number of Students',
+      data: [
+        demographicsData.languageCount.responses['1'],
+        demographicsData.languageCount.responses['2'],
+        demographicsData.languageCount.responses['3'],
+        demographicsData.languageCount.responses['4'],
+        demographicsData.languageCount.responses['5'],
+        demographicsData.languageCount.responses['6_plus'],
+      ],
+    }],
+  };
+
+  // Prepare country data for map with coordinates
+  const countryMapData = [
+    { name: 'Canada', count: demographicsData.birthCountry.responses.canada, lat: 56.1304, lng: -106.3468 },
+    { name: 'USA', count: demographicsData.birthCountry.responses.united_states, lat: 37.0902, lng: -95.7129 },
+    { name: 'India', count: demographicsData.birthCountry.responses.india, lat: 20.5937, lng: 78.9629 },
+    { name: 'China', count: demographicsData.birthCountry.responses.china, lat: 35.8617, lng: 104.1954 },
+    { name: 'Egypt', count: demographicsData.birthCountry.responses.egypt, lat: 26.8206, lng: 30.8025 },
+    { name: 'Taiwan', count: demographicsData.birthCountry.responses.taiwan, lat: 23.6978, lng: 120.9605 },
+    { name: 'Trinidad & Tobago', count: demographicsData.birthCountry.responses.trinidad_and_tobago, lat: 10.6918, lng: -61.2225 },
+    { name: 'Nigeria', count: demographicsData.birthCountry.responses.nigeria, lat: 9.0820, lng: 8.6753 },
+    { name: 'Pakistan', count: demographicsData.birthCountry.responses.pakistan, lat: 30.3753, lng: 69.3451 },
+    { name: 'Hong Kong', count: demographicsData.birthCountry.responses.hong_kong, lat: 22.3193, lng: 114.1694 },
+    { name: 'England', count: demographicsData.birthCountry.responses.england, lat: 52.3555, lng: -1.1743 },
+    { name: 'Germany', count: demographicsData.birthCountry.responses.germany, lat: 51.1657, lng: 10.4515 },
+    { name: 'Congo DR', count: demographicsData.birthCountry.responses.congo_dr, lat: -4.0383, lng: 21.7587 },
+    { name: 'Botswana', count: demographicsData.birthCountry.responses.botswana, lat: -22.3285, lng: 24.6849 },
+    { name: 'South Korea', count: (demographicsData.birthCountry.responses.korea || 0) + (demographicsData.birthCountry.responses.south_korea || 0), lat: 35.9078, lng: 127.7669 },
+    { name: 'Argentina', count: demographicsData.birthCountry.responses.argentina, lat: -38.4161, lng: -63.6167 },
+    { name: 'Afghanistan', count: demographicsData.birthCountry.responses.afghanistan, lat: 33.9391, lng: 67.3099 },
+    { name: 'UAE', count: demographicsData.birthCountry.responses.uae, lat: 23.4241, lng: 53.8478 },
+    { name: 'Tanzania', count: demographicsData.birthCountry.responses.tanzania, lat: -6.3690, lng: 34.8888 },
+    { name: 'Ukraine', count: demographicsData.birthCountry.responses.ukraine, lat: 48.3794, lng: 31.1656 },
+  ].filter(c => c.count > 0);
 
   return (
     <PageContainer>
@@ -200,6 +273,49 @@ const DemographicsPage = () => {
           </div>
         </div>
 
+        {/* Birth Country Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          {/* Birth Country Map */}
+          <div>
+            <ChartContainer 
+              title="Birth Countries Worldwide"
+              subtitle={demographicsData.birthCountry.question}
+            >
+              <BirthCountryMap countries={countryMapData} />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-purple-50 p-4 rounded-lg border-purple-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
+              <p className="text-sm text-gray-700">
+                Mechatronics students come from <strong>22 different countries</strong>. <strong>{demographicsData.birthCountry.responses.canada} students (65%)</strong> were born in Canada, while <strong>{demographicsData.birthCountry.summary.international_born} students (35%)</strong> were born internationally. 
+                The map shows the geographic diversity, with India, USA, and China being the top non-Canadian origins.
+              </p>
+            </div>
+          </div>
+
+          {/* Birth Country - Top International Countries */}
+          <div>
+            <ChartContainer 
+              title="Top Countries of Birth (International)"
+              subtitle="Breakdown of non-Canadian birthplaces"
+            >
+              <EnhancedBarChart 
+                data={birthCountryBarData} 
+                colorTheme="bronze"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-amber-50 p-4 rounded-lg border-amber-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
+              <p className="text-sm text-gray-700">
+                Among international-born students, <strong>India leads with {demographicsData.birthCountry.responses.india} students</strong>, followed by the <strong>United States ({demographicsData.birthCountry.responses.united_states})</strong> and <strong>China ({demographicsData.birthCountry.responses.china})</strong>. 
+                This reflects strong talent recruitment from Asia and North America, showcasing Mechatronics' global reputation.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Bar Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Ethnicity */}
@@ -243,6 +359,62 @@ const DemographicsPage = () => {
               <p className="text-sm text-gray-700">
                 Family structure varies widely, with <strong>{Math.max(...siblingsData.datasets[0].data)} students</strong> in the most common category. 
                 This diversity in family sizes reflects different cultural and personal family planning approaches.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Additional Demographics */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          {/* Language Count */}
+          <div>
+            <ChartContainer 
+              title="Multilingual Abilities"
+              subtitle={demographicsData.languageCount.question}
+            >
+              <EnhancedBarChart 
+                data={languageCountData} 
+                colorTheme="mixed"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-purple-50 p-4 rounded-lg border-purple-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
+              <p className="text-sm text-gray-700">
+                Strong multilingual capabilities within the class, with <strong>{demographicsData.languageCount.responses['2']} students</strong> speaking 2 languages and <strong>{demographicsData.languageCount.responses['3']}</strong> speaking 3 or more. 
+                This reflects the international composition and immigrant backgrounds of Mechatronics students, enhancing cultural exchange and collaboration.
+              </p>
+            </div>
+          </div>
+
+          {/* Immigration & First-Generation */}
+          <div>
+            <ChartContainer 
+              title="Immigrant Background"
+              subtitle="First-generation immigrant status"
+            >
+              <EnhancedPieChart 
+                data={{
+                  labels: ['First-Generation Immigrant', 'Not First-Generation'],
+                  datasets: [{
+                    data: [
+                      demographicsData.firstGenerationImmigrant.responses.yes,
+                      demographicsData.firstGenerationImmigrant.responses.no,
+                    ],
+                  }],
+                }}
+                colorTheme="silver"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-gray-50 p-4 rounded-lg border-gray-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
+              <p className="text-sm text-gray-700">
+                <strong>{Math.round((demographicsData.firstGenerationImmigrant.responses.yes / 
+                  (demographicsData.firstGenerationImmigrant.responses.yes + demographicsData.firstGenerationImmigrant.responses.no)) * 100)}% of students</strong> are first-generation immigrants (parents born outside Canada). 
+                This demonstrates the program's role in enabling immigrant family upward mobility and STEM accessibility.
               </p>
             </div>
           </div>

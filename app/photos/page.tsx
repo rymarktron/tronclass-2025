@@ -58,7 +58,7 @@ const PhotosPage = () => {
       category: 'social',
     },
     {
-      id: '4',
+      id: '5',
       src: '/gallery/Tron-MTE219-GroupPhoto.jpg',
       alt: 'Year 2 Event',
       year: '2',
@@ -67,7 +67,7 @@ const PhotosPage = () => {
       category: 'social',
     },
     {
-      id: '5',
+      id: '6',
       src: '/gallery/IMG_2070.jpg',
       alt: 'Year 4 Project',
       year: '4',
@@ -76,7 +76,7 @@ const PhotosPage = () => {
       category: 'projects',
     },
     {
-      id: '6',
+      id: '7',
       src: '/gallery/IMG_0167.jpg',
       alt: 'Year 3 Celebration',
       year: '3',
@@ -85,7 +85,7 @@ const PhotosPage = () => {
       category: 'social',
     },
     {
-      id: '7',
+      id: '8',
       src: '/gallery/DSC_0559[1].JPG',
       alt: 'Final Year',
       year: '4',
@@ -94,7 +94,7 @@ const PhotosPage = () => {
       category: 'academic',
     },
     {
-      id: '8',
+      id: '9',
       src: '/gallery/D10F9CE1-5555-40D4-B89A-D7F8494F0B74.jpg',
       alt: 'Graduation',
       year: '3',
@@ -103,7 +103,7 @@ const PhotosPage = () => {
       category: 'social',
     },
     {
-      id: '9',
+      id: '10',
       src: '/gallery/remix-9785d192-172e-4578-a0f8-db6fe858e50a.webp',
       alt: 'Class Memory',
       year: '2',
@@ -112,7 +112,7 @@ const PhotosPage = () => {
       category: 'social',
     },
     {
-      id: '9',
+      id: '11',
       src: '/gallery/IMG_4493.JPG',
       alt: 'Class Memory',
       year: '4',
@@ -121,7 +121,7 @@ const PhotosPage = () => {
       category: 'social',
     },
     {
-      id: '9',
+      id: '12',
       src: '/gallery/tron-banner.jpg',
       alt: 'Tron Banner',
       year: '4',
@@ -170,8 +170,8 @@ const PhotosPage = () => {
     }
   };
 
-  const getPhotosForTerm = (year: string, term: string) => {
-    return photos.filter(p => p.year === year && p.term === term);
+  const getPhotosForYear = (year: string) => {
+    return photos.filter(p => p.year === year);
   };
 
   return (
@@ -184,7 +184,7 @@ const PhotosPage = () => {
             Our Undergrad Journey
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            A photographic timeline through four years of Mechatronics Engineering
+            A photographic timeline through four years of Mechatronics Engineering 
           </p>
         </div>
 
@@ -206,27 +206,16 @@ const PhotosPage = () => {
                   )}
                 </div>
 
-                {/* Terms in Year */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-16">
-                  {yearGroup.terms.map(term => {
-                    const termPhotos = getPhotosForTerm(String(yearGroup.year), term);
-
+                {/* Year Photos */}
+                <div className="ml-16 pb-6">
+                  {(() => {
+                    const yearPhotos = getPhotosForYear(String(yearGroup.year));
                     return (
-                      <div key={term} className=" border-gray-300 pl-6 pb-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-4 h-4 rounded-full bg-gray-400 -ml-8"></div>
-                          <h4 className="text-lg font-bold text-gray-900">
-                            {term === '1A' || term === '2A' || term === '3A' || term === '4A' ? 'Fall' : 'Winter'}
-                          </h4>
-                          <span className="text-sm text-gray-600">
-                            ({termPhotos.length} {termPhotos.length === 1 ? 'photo' : 'photos'})
-                          </span>
-                        </div>
-
+                      <>
                         {/* Photos Grid */}
                         <div className="grid grid-cols-2 gap-3">
-                          {termPhotos.length > 0 ? (
-                            termPhotos.map((photo, idx) => (
+                          {yearPhotos.length > 0 ? (
+                            yearPhotos.map((photo, idx) => (
                               <div
                                 key={photo.id}
                                 onClick={() => openPhoto(photo, photos.indexOf(photo))}
@@ -251,13 +240,13 @@ const PhotosPage = () => {
                             ))
                           ) : (
                             <div className="col-span-2 p-4 text-gray-500 italic text-center">
-                              No photos in selected category
+                              No photos for this year
                             </div>
                           )}
                         </div>
-                      </div>
+                      </>
                     );
-                  })}
+                  })()}
                 </div>
               </div>
             ))}

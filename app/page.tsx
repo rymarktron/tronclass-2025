@@ -93,17 +93,17 @@ export default function Home() {
       {/* Main content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-8xl md:text-9xl font-bold text-white mb-8 drop-shadow-2xl tracking-tight">
+          <h1 className="text-8xl md:text-9xl font-bold text-primary mb-8 drop-shadow-2xl tracking-tight">
             <Image src="/t25.svg" alt="tron 25' Logo" width={150} height={150} className="inline-block mb-4" />
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+          <p className="text-2xl md:text-3xl text-primary mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
             Mechatronics Engineering Class of 2025 Survey Results
           </p>
 
           {/* Survey categories preview */}
-          <div className="mt-16 text-white/80">
-            <p className="text-lg mb-4">Explore survey data across these categories:</p>
+          <div className="mt-16 text-primary">
+            <p className="text-2xl mb-4">Explore survey data across these categories:</p>
             <div className="flex flex-wrap justify-center gap-3 text-sm">
               {navigation.slice(2).map((item) => (
                 <Link key={item.name} href={item.href} className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 hover:border-white/40 transition-colors">

@@ -23,6 +23,7 @@ export default function ContributorsPage() {
 
               <p className="text-gray-800 mb-4">
               Thank you to Jesse, Ryan, Nathan, and Alvin for creating survey and leading the design and deployment of the site.
+              Thank you to Joseph for the domain!
                 </p>
                 <p className="text-gray-800 mb-4">
                 To the 2022 and 2020 classes, and to all the upper years who mentored us, supported us, and showed us 

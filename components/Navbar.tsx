@@ -75,9 +75,9 @@ const Navbar = () => {
       <div className="hidden md:block">
         <nav className="fixed left-0 top-0 h-screen bg-transparent z-50 flex items-center">
           <div className="pl-8">
-            <div className="flex flex-col items-center gap-8">
-              <Link href="/" className="flex items-center text-3xl font-bold text-gray-900">
-                <Image src="/t25.svg" alt="tron 25' Logo" width={50} height={50} className="inline-block" />
+            <div className="flex flex-col items-start gap-8">
+              <Link href="/" className="flex items-left pl-4 text-3xl font-bold text-gray-900">
+                <Image src="/t25.svg" alt="tron 25' Logo" width={80} height={80} className="inline-block" />
               </Link>
               
               <div className="flex flex-col gap-2">
