@@ -10,7 +10,7 @@ export default function AboutPage() {
       {/* Hero Section with Group Photo */}
       <div className="relative w-full h-96 md:h-screen overflow-hidden">
         <img
-          src="/TRON GROUP CLASS PHOTO.jpg"
+          src="/TRON GROUP CLASS PHOTO.png"
           alt="Mechatronics Engineering Class of 2025"
           className="w-full h-full object-cover"
         />
