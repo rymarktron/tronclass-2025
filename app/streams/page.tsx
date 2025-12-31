@@ -222,36 +222,6 @@ const StreamsPage = () => {
             </div>
           </ChartContainer>
         </div>
-
-        {/* Statistics Summary */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-gradient-to-r from-amber-400 to-yellow-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {streamsData.transferData.responses.no + streamsData.transferData.responses.yes}
-            </div>
-            <div className="text-sm opacity-90">Total Responses</div>
-          </div>
-          <div className="bg-gradient-to-r from-gray-400 to-gray-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {Math.round((streamsData.transferData.responses.yes / 
-                (streamsData.transferData.responses.no + streamsData.transferData.responses.yes)) * 100)}%
-            </div>
-            <div className="text-sm opacity-90">Transfer Rate</div>
-          </div>
-          <div className="bg-gradient-to-r from-yellow-600 to-orange-600 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {streamsData.currentStream.responses.stream_8}
-            </div>
-            <div className="text-sm opacity-90">Stream 8 Students</div>
-          </div>
-          <div className="bg-gradient-to-r from-amber-600 to-yellow-700 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {Math.round((streamsData.streamSwitch.responses.yes / 
-                (streamsData.streamSwitch.responses.no + streamsData.streamSwitch.responses.yes)) * 100)}%
-            </div>
-            <div className="text-sm opacity-90">Switch Rate</div>
-          </div>
-        </div>
       </div>
     </PageContainer>
   );

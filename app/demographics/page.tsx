@@ -25,6 +25,26 @@ const DemographicsPage = () => {
     }],
   };
 
+  // Canadian Citizenship
+  const citizenshipData = {
+    labels: ['Canadian Citizens', 'Non-Canadian Citizens'],
+    datasets: [{
+      data: [
+        demographicsData.canadianCitizenship.responses.yes,
+        demographicsData.canadianCitizenship.responses.no,
+      ],
+    }],
+  };
+
+  // Citizenship Countries (besides Canada)
+  const countriesFromData = {
+    labels: Object.keys(demographicsData.countriesFrom.summary.most_common_countries),
+    datasets: [{
+      label: 'Number of Students',
+      data: Object.values(demographicsData.countriesFrom.summary.most_common_countries),
+    }],
+  };
+
   // Gender Distribution
   const genderData = {
     labels: ['Male (Cis)', 'Female (Cis)', 'Male (Trans)', 'Female (Trans)', 'Non-binary'],
@@ -164,6 +184,7 @@ const DemographicsPage = () => {
     { name: 'UAE', count: demographicsData.birthCountry.responses.uae, lat: 23.4241, lng: 53.8478 },
     { name: 'Tanzania', count: demographicsData.birthCountry.responses.tanzania, lat: -6.3690, lng: 34.8888 },
     { name: 'Ukraine', count: demographicsData.birthCountry.responses.ukraine, lat: 48.3794, lng: 31.1656 },
+    { name: 'Grand Cayman', count: demographicsData.birthCountry.responses.grand_cayman_ca, lat: 19.4827, lng: -79.9477 },
   ].filter(c => c.count > 0);
 
   return (
@@ -220,6 +241,52 @@ const DemographicsPage = () => {
                   (demographicsData.gender.responses.male_cis + demographicsData.gender.responses.female_cis + demographicsData.gender.responses.male_trans + demographicsData.gender.responses.female_trans + demographicsData.gender.responses.non_binary)) * 100)}% identify as male</strong>, 
                 while <strong>{Math.round(((demographicsData.gender.responses.female_cis + demographicsData.gender.responses.female_trans) / 
                   (demographicsData.gender.responses.male_cis + demographicsData.gender.responses.female_cis + demographicsData.gender.responses.male_trans + demographicsData.gender.responses.female_trans + demographicsData.gender.responses.non_binary)) * 100)}% identify as female</strong>. This composition is typical for engineering programs, though diversity initiatives continue to encourage broader participation.
+              </p>
+            </div>
+          </div>
+
+          {/* Canadian Citizenship */}
+          <div>
+            <ChartContainer 
+              title="Canadian Citizenship"
+              subtitle={demographicsData.canadianCitizenship.question}
+            >
+              <EnhancedPieChart 
+                data={citizenshipData} 
+                colorTheme="gold"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-yellow-50 p-4 rounded-lg border-yellow-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
+              <p className="text-sm text-gray-700">
+                <strong>{Math.round((demographicsData.canadianCitizenship.responses.yes / 
+                  (demographicsData.canadianCitizenship.responses.yes + demographicsData.canadianCitizenship.responses.no)) * 100)}%</strong> of Tron students hold Canadian citizenship, 
+                with a small portion maintaining other citizenship(s) alongside Canadian citizenship or holding citizenship elsewhere.
+              </p>
+            </div>
+          </div>
+
+          {/* Countries Citizenship */}
+          <div>
+            <ChartContainer 
+              title="Other Countries of Citizenship"
+              subtitle={demographicsData.countriesFrom.question}
+            >
+              <EnhancedBarChart 
+                data={countriesFromData} 
+                colorTheme="mixed"
+                showTitle={false}
+              />
+            </ChartContainer>
+            {/* Analysis */}
+            <div className="mt-4 bg-purple-50 p-4 rounded-lg border-purple-400">
+              <h4 className="font-semibold text-gray-800 mb-2">Analysis</h4>
+              <p className="text-sm text-gray-700">
+                Beyond Canadian citizenship, <strong>{demographicsData.countriesFrom.summary.total_responses} students</strong> reported holding additional citizenships, 
+                spanning <strong>{demographicsData.countriesFrom.summary.unique_countries.length} unique countries</strong>. 
+                <strong> India and the United States</strong> are the most common, each held by 6 students, reflecting the international composition of the class.
               </p>
             </div>
           </div>

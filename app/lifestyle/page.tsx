@@ -235,8 +235,19 @@ const LifestylePage = () => {
           </div>
 
           <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Rice Purity Scores</h2>
-            <p className="text-gray-600 text-sm mb-4">{preTronData.ricePurityScores.question}</p>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Rice Purity Scores</h2>
+            <p className="text-gray-600 text-xs mb-3">{preTronData.ricePurityScores.question}</p>
+            <p className="text-gray-700 text-xs mb-4">
+              A lighthearted self-assessment quiz measuring life experiences on a 0-100 scale. Higher scores indicate fewer experiences, lower scores more diverse ones. 
+              <a 
+                href="https://ricepuritytest.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-purple-600 hover:text-purple-700 font-semibold ml-1"
+              >
+                Take the test →
+              </a>
+            </p>
             <div className="space-y-4">
               <div className="bg-gradient-to-r from-yellow-400 to-orange-500 p-4 rounded-lg text-white text-center">
                 <div className="text-3xl font-bold">{avgScore}</div>
@@ -260,54 +271,6 @@ const LifestylePage = () => {
                 Average score of <strong>{avgScore}</strong> indicates moderate life experiences. 
                 The wide range ({minScore}-{maxScore}) shows diverse backgrounds and experiences within the Tron class.
               </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Rice Purity Test Explanation Section */}
-        <div className="bg-gradient-to-r from-purple-500/10 to-pink-600/10 rounded-2xl p-8 md:p-12 border-2 border-purple-200 mb-8">
-          <div className="flex items-start gap-4">
-            <div className="text-4xl">📋</div>
-            <div className="flex-1">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">What is the Rice Purity Test?</h2>
-              <p className="text-gray-800 mb-4">
-                The Rice Purity Test is a lighthearted self-assessment quiz that originated at Rice University. It consists of 100 questions 
-                covering various life experiences, from innocent activities to more adult experiences. Your final score reflects your "purity" on a scale of 0-100:
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <div className="bg-white/70 p-4 rounded-lg">
-                  <p className="font-semibold text-gray-900 mb-2">High Score (80-100)</p>
-                  <p className="text-sm text-gray-700">Indicates less life experience or more conservative choices</p>
-                </div>
-                <div className="bg-white/70 p-4 rounded-lg">
-                  <p className="font-semibold text-gray-900 mb-2">Medium Score (40-79)</p>
-                  <p className="text-sm text-gray-700">Reflects typical university-age experiences and diverse choices</p>
-                </div>
-                <div className="bg-white/70 p-4 rounded-lg">
-                  <p className="font-semibold text-gray-900 mb-2">Low Score (0-39)</p>
-                  <p className="text-sm text-gray-700">Suggests more diverse and adventurous life experiences</p>
-                </div>
-                <div className="bg-white/70 p-4 rounded-lg">
-                  <p className="font-semibold text-gray-900 mb-2">Why It Matters</p>
-                  <p className="text-sm text-gray-700">It's a fun cultural artifact that many university students engage with</p>
-                </div>
-              </div>
-
-              <p className="text-gray-800 mb-4">
-                <strong>Important note:</strong> This test is meant to be fun and humorous. Scores don't define a person's character, morality, 
-                or worth. They're simply a reflection of the life choices and experiences each person has made.
-              </p>
-
-              <a 
-                href="https://ricepuritytest.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-pink-700 transition-all"
-              >
-                Take the Rice Purity Test
-                <span className="text-lg">→</span>
-              </a>
             </div>
           </div>
         </div>
@@ -369,37 +332,6 @@ const LifestylePage = () => {
             </div>
           </div>
         </div>
-
-        {/* Statistics Summary */}
-        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-gradient-to-r from-amber-400 to-yellow-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {Math.round((preTronData.romanticRelationship.responses.yes / 
-                (preTronData.romanticRelationship.responses.yes + preTronData.romanticRelationship.responses.no + preTronData.romanticRelationship.responses.its_complicated)) * 100)}%
-            </div>
-            <div className="text-sm opacity-90">Had Relationships</div>
-          </div>
-          <div className="bg-gradient-to-r from-gray-400 to-gray-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {Math.round((preTronData.drinking.responses.yes / 
-                (preTronData.drinking.responses.yes + preTronData.drinking.responses.no + preTronData.drinking.responses.maybe)) * 100)}%
-            </div>
-            <div className="text-sm opacity-90">Drink Alcohol</div>
-          </div>
-          <div className="bg-gradient-to-r from-yellow-600 to-orange-600 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {healthData.sleepPatterns.responses['7_8_hours']}
-            </div>
-            <div className="text-sm opacity-90">Get 7-8 Hours Sleep</div>
-          </div>
-          <div className="bg-gradient-to-r from-amber-600 to-yellow-700 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {Math.round((preTronData.weed.responses.yes / 
-                (preTronData.weed.responses.yes + preTronData.weed.responses.no + preTronData.weed.responses.maybe)) * 100)}%
-            </div>
-            <div className="text-sm opacity-90">Use Cannabis</div>
-          </div>
-      </div>
       </div>
     </PageContainer>
   );

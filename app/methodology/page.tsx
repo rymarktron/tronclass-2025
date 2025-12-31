@@ -104,11 +104,18 @@ const MethodologyPage = () => {
 
         {/* Participation */}
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Participation</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Participation & Response Rates</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             This survey was administered to members of the Mechatronics Engineering Class of 2025 at the University of Waterloo. 
             Participation was voluntary, with responses collected anonymously to encourage honest and candid feedback.
           </p>
+          <div className="bg-gray-50 p-4 rounded-lg mb-4">
+            <p className="text-gray-800 font-semibold mb-2">Response Rates:</p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• <strong>Wave 1 (January 2025):</strong> Achieved a significant response rate with the majority of the class participating, providing robust data across all surveyed areas.</li>
+              <li>• <strong>Wave 2 (June 2025):</strong> Saw lower participation in several sections, with approximately 20 respondents in some reflection categories. These sections represent a sample rather than comprehensive class data and should be interpreted with this sampling consideration in mind.</li>
+            </ul>
+          </div>
           <div className="bg-gray-50 p-4 rounded-lg">
             <p className="text-gray-800 font-semibold mb-2">Response Categories:</p>
             <ul className="space-y-2 text-gray-700">

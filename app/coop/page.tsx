@@ -268,34 +268,6 @@ const CoopPage = () => {
             </div>
           </ChartContainer>
         </div>
-
-        {/* Statistics Summary */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-gradient-to-r from-amber-400 to-yellow-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {coopData.workIndustries.responses.software_developer}
-            </div>
-            <div className="text-sm opacity-90">Software Developers</div>
-          </div>
-          <div className="bg-gradient-to-r from-gray-400 to-gray-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {coopData.workIndustries.responses.mechanical}
-            </div>
-            <div className="text-sm opacity-90">Mechanical Roles</div>
-          </div>
-          <div className="bg-gradient-to-r from-yellow-600 to-orange-600 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {coopData.workIndustries.responses.research}
-            </div>
-            <div className="text-sm opacity-90">Research Positions</div>
-          </div>
-          <div className="bg-gradient-to-r from-amber-600 to-yellow-700 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {coopData.bestCoopExperiences.responses.length}
-            </div>
-            <div className="text-sm opacity-90">Experience Stories</div>
-          </div>
-      </div>
       </div>
     </PageContainer>
   );

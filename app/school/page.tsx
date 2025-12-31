@@ -416,38 +416,6 @@ const SchoolPage = () => {
             </div>
           </div>
         </div>
-
-        {/* Summary Statistics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-gradient-to-r from-amber-400 to-yellow-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {universityData.cumulativeGPA.keyInsights.studentsAbove80}
-            </div>
-            <div className="text-sm opacity-90">Students Above 80%</div>
-          </div>
-          <div className="bg-gradient-to-r from-green-400 to-emerald-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {Math.round((universityData.programEvaluation.programEnjoyment.responses.yes / 
-                (universityData.programEvaluation.programEnjoyment.responses.yes + universityData.programEvaluation.programEnjoyment.responses.meh)) * 100)}%
-            </div>
-            <div className="text-sm opacity-90">Had Fun</div>
-          </div>
-          <div className="bg-gradient-to-r from-blue-400 to-cyan-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {Math.round(((universityData.programValueAssessment.recommendationLikelihood.responses['4'] + 
-                universityData.programValueAssessment.recommendationLikelihood.responses['5']) / 
-                Object.values(universityData.programValueAssessment.recommendationLikelihood.responses).reduce((a, b) => a + b, 0)) * 100)}%
-            </div>
-            <div className="text-sm opacity-90">Would Recommend</div>
-          </div>
-          <div className="bg-gradient-to-r from-purple-400 to-pink-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {Math.round((universityData.programValueAssessment.wouldChooseDifferent.responses.no / 
-                (universityData.programValueAssessment.wouldChooseDifferent.responses.yes + universityData.programValueAssessment.wouldChooseDifferent.responses.no + universityData.programValueAssessment.wouldChooseDifferent.responses.not_sure)) * 100)}%
-            </div>
-            <div className="text-sm opacity-90">Would Choose Again</div>
-          </div>
-      </div>
       </div>
     </PageContainer>
   );

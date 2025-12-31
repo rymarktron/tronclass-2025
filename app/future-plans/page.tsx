@@ -262,35 +262,6 @@ const FuturePlansPage = () => {
             </div>
           </ChartContainer>
         </div>
-
-        {/* Statistics Summary */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-gradient-to-r from-amber-400 to-yellow-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {Math.round((PostTron.postGraduationPlans.currentEmployment.responses.yes / 
-                (PostTron.postGraduationPlans.currentEmployment.responses.yes + PostTron.postGraduationPlans.currentEmployment.responses.no)) * 100)}%
-            </div>
-            <div className="text-sm opacity-90">Have Job Offers</div>
-          </div>
-          <div className="bg-gradient-to-r from-gray-400 to-gray-500 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {PostTron.postGraduationPlans.employedCompanies.topCompanies.tesla}
-            </div>
-            <div className="text-sm opacity-90">Going to Tesla</div>
-          </div>
-          <div className="bg-gradient-to-r from-yellow-600 to-orange-600 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {PostTron.postGraduationPlans.positionTitles.roleCategories.software_engineer}
-            </div>
-            <div className="text-sm opacity-90">Software Engineers</div>
-          </div>
-          <div className="bg-gradient-to-r from-amber-600 to-yellow-700 p-6 rounded-lg text-center text-white">
-            <div className="text-3xl font-bold">
-              {PostTron.postGraduationPlans.specialPlans.categories.entrepreneurship}
-            </div>
-            <div className="text-sm opacity-90">Starting Startups</div>
-          </div>
-      </div>
       </div>
     </PageContainer>
   );
